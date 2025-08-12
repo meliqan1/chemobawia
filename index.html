@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ჩემი გონება</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Indie+Flower&display=swap" rel="stylesheet">
+</head>
+<body>
+   
+    <canvas id="canvas"></canvas>
+   
+
+
+    <script src="script.js"></script>
+
+    <audio id="bgm" src="music.mp3" loop></audio>
+
+<script>
+  // ფუნქცია მუსიკის ჩასართავად
+  function enableAudio() {
+    const audio = document.getElementById("bgm");
+    audio.play();
+    // ინტერაქციის სმენარის მოხსნა — მხოლოდ ერთხელ გაჟღერდეს
+    document.body.removeEventListener('click', enableAudio);
+    document.body.removeEventListener('touchstart', enableAudio);
+  }
+
+  // მოსმენა: როცა მომხმარებელი დააჭერს ან შეეხება საიტს
+  document.body.addEventListener('click', enableAudio);
+  document.body.addEventListener('touchstart', enableAudio);
+</script>
+
+
+
+
+
+</body>
+
+
+
+</html>
