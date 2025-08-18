@@ -6,6 +6,14 @@
     <title>ჩემი გონება</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Indie+Flower&display=swap" rel="stylesheet">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RXTPJ849EF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RXTPJ849EF');
+</script>
 </head>
 <body>
    
@@ -15,21 +23,21 @@
 
     <script src="script.js"></script>
 
-    <audio id="bgm" src="music.mp3" loop></audio>
+ <audio id="music" src="music.mp3"></audio>
 
 <script>
-  // ფუნქცია მუსიკის ჩასართავად
-  function enableAudio() {
-    const audio = document.getElementById("bgm");
-    audio.play();
-    // ინტერაქციის სმენარის მოხსნა — მხოლოდ ერთხელ გაჟღერდეს
-    document.body.removeEventListener('click', enableAudio);
-    document.body.removeEventListener('touchstart', enableAudio);
-  }
+const music = document.getElementById("music");
 
-  // მოსმენა: როცა მომხმარებელი დააჭერს ან შეეხება საიტს
-  document.body.addEventListener('click', enableAudio);
-  document.body.addEventListener('touchstart', enableAudio);
+// პირველი შეხებისას ჩაირთოს მუსიკა
+document.addEventListener("click", () => {
+    music.play()
+    .then(() => {
+        console.log("🎶 მუსიკა ჩაირთო");
+    })
+    .catch(err => {
+        console.log("Playback error:", err);
+    });
+}, { once: true }); // მხოლოდ ერთხელ იმოქმედებს
 </script>
 
 
